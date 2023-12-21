@@ -59,8 +59,16 @@ This project utilizes the following NuGet packages:
     - Open `Program.cs`.
     - Add CORS configuration in the `ConfigureServices` and `Configure` methods. Example provided in [this guide](#configure-cors-in-programcs).
 
-4. **Run the .NET WebAPI**
-    Build and run your .NET Core application. The API will be hosted on `http://localhost:5293`.
+4. **Migrations using Entity Framework Core**
+    To perform database migrations using Entity Framework Core:
+    - Open a terminal or command prompt in the root directory of your WebAPI project.
+    - Run the following commands:
+        ```bash
+        dotnet ef migrations add InitialCreate -o Data/Migrations
+        dotnet ef database update
+        ```
+    This will create the initial migration and apply it to your database.
+
 
 ## Configure CORS in Program.cs
 
@@ -98,3 +106,8 @@ app.UseCors("AllowSpecificOrigin");
 // Other configurations...
 
 app.Run();
+```
+
+## Contributing
+
+Contributions are welcome! Fork the repository, make your changes, and submit a pull request.
