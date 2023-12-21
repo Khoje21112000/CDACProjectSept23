@@ -5,24 +5,11 @@ This guide provides steps to set up a ReactJS frontend application and a .NET Co
 ## Prerequisites
 
 Ensure you have the following installed:
+- Visual Studio Code
+- Visual Studio Code 2022
+- MySQL & MySQL WorkBench
+- GitHub Desktop
 - Node.js and npm (for ReactJS)
-- .NET SDK (for .NET Core)
-
-## NuGet Packages (for .NET Core)
-
-This project utilizes the following NuGet packages:
-
-- **Microsoft.EntityFrameworkCore (v6.0.3)**
-  - Entity Framework Core is an ORM for .NET. It's used for database interactions.
-  - [NuGet Package](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/6.0.3)
-
-- **Microsoft.EntityFrameworkCore.Tools (v6.0.3)**
-  - EF Core Tools contain additional commands for Entity Framework Core.
-  - [NuGet Package](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/6.0.3)
-
-- **Pomelo.EntityFrameworkCore.MySql (v6.0.1)**
-  - Pomelo MySQL provider for Entity Framework Core. Enables MySQL database integration.
-  - [NuGet Package](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql/6.0.1)
 
 
 ## ReactJS App Setup
@@ -70,6 +57,24 @@ This project utilizes the following NuGet packages:
     This will create the initial migration and apply it to your database.
 
 
+## NuGet Packages (for .NET Core)
+
+This project utilizes the following NuGet packages:
+
+- **Microsoft.EntityFrameworkCore (v6.0.3)**
+  - Entity Framework Core is an ORM for .NET. It's used for database interactions.
+  - [NuGet Package](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/6.0.3)
+
+- **Microsoft.EntityFrameworkCore.Tools (v6.0.3)**
+  - EF Core Tools contain additional commands for Entity Framework Core.
+  - [NuGet Package](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/6.0.3)
+
+- **Pomelo.EntityFrameworkCore.MySql (v6.0.1)**
+  - Pomelo MySQL provider for Entity Framework Core. Enables MySQL database integration.
+  - [NuGet Package](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql/6.0.1)
+
+
+
 ## Configure CORS in Program.cs
 
 ```csharp
@@ -111,3 +116,4 @@ app.Run();
 ## Contributing
 
 Contributions are welcome! Fork the repository, make your changes, and submit a pull request.
+- Jarvis
