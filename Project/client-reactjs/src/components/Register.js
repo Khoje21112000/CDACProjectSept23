@@ -19,6 +19,7 @@ class Register extends React.Component {
     e.preventDefault();
     console.log(this.state);
 
+    // custom API
     axios.post("http://localhost:5293/api/user", this.state)
       .then((res) => {
         console.log(res);
