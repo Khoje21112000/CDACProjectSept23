@@ -18,7 +18,7 @@ Ensure you have the following installed:
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/your-username/your-react-app.git
+    git clone https://github.com/jarvisavinash/CDACSEPT23.git
     cd your-react-app
     ```
 
@@ -37,7 +37,7 @@ Ensure you have the following installed:
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/your-username/your-dotnet-webapi.git
+    git clone https://github.com/jarvisavinash/CDACSEPT23.git
     cd your-dotnet-webapi
     ```
 
