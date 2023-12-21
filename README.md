@@ -7,9 +7,11 @@ This guide provides steps to set up a ReactJS frontend application and a .NET Co
 Ensure you have the following installed:
 - Visual Studio Code
 - Visual Studio Code 2022
+- Eclipse
 - MySQL & MySQL WorkBench
 - GitHub Desktop
 - Node.js and npm (for ReactJS)
+- Postman
 
 
 ## ReactJS App Setup
@@ -74,7 +76,6 @@ This project utilizes the following NuGet packages:
   - [NuGet Package](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql/6.0.1)
 
 
-
 ## Configure CORS in Program.cs
 
 ```csharp
@@ -112,6 +113,76 @@ app.UseCors("AllowSpecificOrigin");
 
 app.Run();
 ```
+
+
+# Spring Boot Application Setup Guide
+
+This guide provides step-by-step instructions on how to create and set up a Spring Boot application using Spring Initializr and configure it to run a basic REST API using MySQL as the database.
+
+## Creating a Spring Boot Application using Spring Initializr:
+
+1. Go to [Spring Initializr](https://start.spring.io/).
+2. Fill in the required project details:
+   - **Project:** Maven or Gradle (Select Maven for this example)
+   - **Language:** Java 
+   - **Spring Boot:** Choose the desired version (e.g., 3.2.1)
+   - **Project Metadata:** Group, Artifact, Name, and Description
+   - **Dependencies:** Add dependencies for `Spring Web`, `Spring Data JPA`, and `MySQL Driver`.
+   - **Packaging: Jar or War (Select Jar for this example)
+   - **Java: 17 (or your preferred version)
+3. Click on "Generate" to download the project zip file.
+4. **Unzip the downloaded zip file:**
+   Unzip the downloaded project zip file in your preferred location on your machine.
+5. **Importing the Project into Eclipse:**
+   - Open Eclipse IDE.
+   - Click on `File`.
+   - Select `Import`.
+   - Expand `Maven`.
+   - Choose `Existing Maven Projects`, then click `Next`.
+   - Browse to the directory where you unzipped the project.
+   - Click `Next`.
+
+6. **Building and Running the Application:**
+   - Once the project is imported, right-click on the project in the Eclipse Project Explorer.
+   - Go to `Run As` and select `Spring Boot App` or `Java Application`.
+   - The Spring Boot application will start, and you'll see logs in the console indicating that the application has started.
+   - Open a web browser and go to `http://localhost:8080` to access the default application endpoint (if available).
+  
+
+# CORS Configuration in Spring Boot
+
+This guide demonstrates how to configure CORS (Cross-Origin Resource Sharing) in a Spring Boot application to allow cross-origin requests.
+
+## Configuring CORS in Spring Boot:
+
+1. **Create a Configuration Class for CORS:**
+   Create a configuration class to define CORS settings.
+
+   ```java
+   import org.springframework.context.annotation.Bean;
+   import org.springframework.context.annotation.Configuration;
+   import org.springframework.web.cors.CorsConfiguration;
+   import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+   import org.springframework.web.filter.CorsFilter;
+
+   @Configuration
+   public class CorsConfig {
+       @Bean
+       public CorsFilter corsFilter() {
+           UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+           CorsConfiguration config = new CorsConfiguration();
+
+           // Configure allowed origins, headers, methods, etc.
+           config.addAllowedOrigin("*"); // Set the allowed origin, "*" allows all origins
+           config.addAllowedHeader("*"); // Set the allowed headers, "*" allows all headers
+           config.addAllowedMethod("*"); // Set the allowed HTTP methods, "*" allows all methods
+
+           source.registerCorsConfiguration("/**", config);
+           return new CorsFilter(source);
+       }
+   }
+
+
 
 ## Contributing
 
