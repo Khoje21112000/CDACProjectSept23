@@ -20,7 +20,10 @@ class Register extends React.Component {
     console.log(this.state);
 
     // custom API
-    axios.post("http://localhost:5293/api/user", this.state)
+
+    // For .Net Backend
+//  axios.post("http://localhost:5293/api/user", this.state)
+    axios.post("http://localhost:8080/api/user", this.state)
       .then((res) => {
         console.log(res);
       });
