@@ -3,5 +3,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.springboot.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    // Custom queries if needed
+	
+	User findByEmailAndPassword(String email, String password);
+	
+	User findByEmail(String email);
+
 }
+

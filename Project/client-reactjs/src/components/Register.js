@@ -1,73 +1,136 @@
-import React from "react";
-import axios from "axios";
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import axios from 'axios';
 
-class Register extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      email: "",
-      password: "",
-    };
-  }
+const Register = () => {
 
-  Handler = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [mobileNo, setMobileNo] = useState('');
+  const [password, setPassword] = useState('');
 
-  SubmitHandler = (e) => {
-    e.preventDefault();
-    console.log(this.state);
-
-    // custom API
-    //.Net Core
-    axios.post("http://localhost:5293/api/user", this.state)
-    // Spring Boot
-    //axios.post("http://localhost:8080/api/user", this.state)
-      .then((res) => {
-        console.log(res);
+  const handleRegister = async () => {
+    try {
+      const response = await axios.post('http://localhost:8080/register', {
+        firstName,
+        lastName,
+        email,
+        mobileNo,
+        password
       });
+
+      console.log(response.data); // Handle success response
+    } catch (error) {
+      console.error('Login failed:', error.message);
+    }
   };
 
-  render() {
-    const { email, password } = this.state;
 
-    return (
-      <div style={{"margin" : "50px"}}>
-        <div className="RegisterForm">
-          <br /><br />
-          <form onSubmit={this.SubmitHandler} style={{"margin" : "50px"}}>
-            <div className="form-outline mb-4" style={{"margin" : "50px"}}>
-              <input onChange={this.Handler} value={email} placeholder="Email" name="email" type="text" id="form2Example1" className="form-control" />
-            </div>
+  return (
+    <section className="background-radial-gradient overflow-hidden">
+      <style>
+        {`.background-radial-gradient {
+          background-color: hsl(218, 41%, 15%);
+          background-image: radial-gradient(650px circle at 0% 0%,
+              hsl(218, 41%, 35%) 15%,
+              hsl(218, 41%, 30%) 35%,
+              hsl(218, 41%, 20%) 75%,
+              hsl(218, 41%, 19%) 80%,
+              transparent 100%),
+            radial-gradient(1250px circle at 100% 100%,
+              hsl(218, 41%, 45%) 15%,
+              hsl(218, 41%, 30%) 35%,
+              hsl(218, 41%, 20%) 75%,
+              hsl(218, 41%, 19%) 80%,
+              transparent 100%);
+        }`}
+      </style>
 
-            <div className="form-outline mb-4" style={{"margin" : "50px"}}>
-              <input onChange={this.Handler} value={password} placeholder="Password" name="password" type="text" id="form2Example2" className="form-control" />
-            </div>
-
-            <div className="row mb-4">
-              <div className="col d-flex justify-content-center">
-              <div className="form-check">
-              <input className="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-              <label className="form-check-label" htmlFor="form2Example31"> Remember me </label>
-            </div>
-           </div>
-
-          <div className="col">
-            <a href="#!">Forgot password?</a>
+      <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div className="row gx-lg-5 align-items-center mb-5">
+          <div className="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: 10 }}>
+            <h1 className="my-5 display-5 fw-bold ls-tight" style={{ color: 'hsl(218, 81%, 95%)' }}>
+              The best offer <br />
+              <span style={{ color: 'hsl(218, 81%, 75%)' }}>for your business</span>
+            </h1>
+            <p className="mb-4 opacity-70" style={{ color: 'hsl(218, 81%, 85%)' }}>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Temporibus, expedita iusto veniam atque, magni tempora mollitia
+              dolorum consequatur nulla, neque debitis eos reprehenderit quasi
+              ab ipsum nisi dolorem modi. Quos?
+            </p>
           </div>
+
+          <div className="col-lg-6 mb-5 mb-lg-0 position-relative">
+            <div id="radius-shape-1" className="position-absolute rounded-circle shadow-5-strong"></div>
+            <div id="radius-shape-2" className="position-absolute shadow-5-strong"></div>
+
+            <div className="card bg-glass">
+              <div className="card-body px-4 py-5 px-md-5">
+                <form>
+                  <div className="row">
+                    <div className="col-md-6 mb-4">
+                      <div className="form-outline">
+                        <input value={firstName} onChange={(e) => setFirstName(e.target.value)} type="text" id="form3Example1" className="form-control" placeholder="FirstName" required/>
+                      </div>
+                    </div>
+                    <div className="col-md-6 mb-4">
+                      <div className="form-outline">
+                        <input value={lastName} onChange={(e) => setLastName(e.target.value)} type="text" id="form3Example2" className="form-control" placeholder="LastName" required/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <div className="col-md-6 mb-4">
+                      <div className="form-outline">
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="form3Example1" className="form-control" placeholder="Email address" required/>
+                      </div>
+                    </div>
+                    <div className="col-md-6 mb-4">
+                      <div className="form-outline">
+                        <input value={mobileNo} onChange={(e) => setMobileNo(e.target.value)} type="text" id="form3Example2" className="form-control" placeholder="Mobile No." required/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="form-outline mb-4">
+                    <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="form3Example4" className="form-control" placeholder="Password" required/>
+                  </div>
+
+                  <button onClick={handleRegister} type="button" className="btn btn-primary btn-block mb-4" >
+                    Sign up
+                  </button>
+
+                  <div className="text-center">
+                    <p>or sign up with:</p>
+                    <button type="button" className="btn btn-link btn-floating mx-1">
+                      <i className="fab fa-facebook-f"></i>
+                    </button>
+
+                    <button type="button" className="btn btn-link btn-floating mx-1">
+                      <i className="fab fa-google"></i>
+                    </button>
+
+                    <button type="button" className="btn btn-link btn-floating mx-1">
+                      <i className="fab fa-twitter"></i>
+                    </button>
+
+                    <button type="button" className="btn btn-link btn-floating mx-1">
+                      <i className="fab fa-github"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-
-          <button type="submit" className="btn btn-primary btn-block mb-4">Register</button>
-        </form>
-
         </div>
       </div>
-    );
-  }
-}
+    </section>
+  );
+};
 
 export default Register;
-
-
-
