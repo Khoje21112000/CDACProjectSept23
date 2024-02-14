@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -8,6 +9,8 @@ const Login = () => {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState('');
   const [pass, setPass] = useState('');
+  const [error, setError] = useState('');
+  const navigation = useNavigate();
 
   const handleLogin = async () => {
     try {
@@ -15,10 +18,18 @@ const Login = () => {
         email,
         password,
       });
-
-      console.log(response.data); // Handle success response
+      console.log(response.data);
+      if (response.data === "Success") {
+        navigation('/Lander');
+      } else {
+        // Handle error here, for example, show an error message
+        setError('Invalid email or password');
+      }
+     // Handle success response
     } catch (error) {
       console.error('Login failed:', error.message);
+      // Handle error here, show an error message to the user
+      setError('Login failed. Please try again later.');
     }
   };
 
@@ -57,6 +68,13 @@ const Login = () => {
         <div className="card-body">
           <h2 className="card-title">Login</h2>
           <form>
+
+          {error && (
+          <div className="alert alert-danger" role="alert">
+            {error}
+          </div>
+          )}
+
             {/* Email input */}
             <div className="form-outline mb-4">
               <input type="email" id="form2Example1" className="form-control" placeholder="Enter your email" 
@@ -105,13 +123,13 @@ const Login = () => {
               </div>
             ) : (
               // Submit button
-              <button type="button"className="btn btn-primary btn-block"onClick={handleLogin}>Sign in</button>
+              <button type="button"className="btn btn-primary btn-block"onClick={handleLogin} >Sign in</button>
             )}
 
             {/* Register buttons */}
             <div className="text-center">
               <p>            <br/>
-                Not a member? <a href="#!">Register</a>
+                Not a member? <Link to="/register">Register</Link> 
               </p>
               <p>or sign up with:</p>
               <button type="button" className="btn btn-link btn-floating mx-1">

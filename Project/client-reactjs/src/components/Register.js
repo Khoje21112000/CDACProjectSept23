@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = () => {
@@ -11,6 +13,22 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [mobileNo, setMobileNo] = useState('');
   const [password, setPassword] = useState('');
+  const [registrationSuccess, setRegistrationSuccess] = useState(false); // State to manage registration success message
+  const [error, setError] = useState('');
+  // const [otp, setOtp] = useState(''); // Define otp state
+  const navigation = useNavigate(); // Initialize the useNavigate hook
+  
+
+  // const sendOTP = async () => {
+  //   try {
+  //     // Implement OTP sending logic here
+  //     const response = await axios.post('http://localhost:8080/send-otp', { mobileNo });
+  //     // For demonstration, let's assume OTP is sent successfully
+  //     window.alert('OTP sent successfully!');
+  //   } catch (error) {
+  //     console.error('Failed to send OTP:', error.message);
+  //   }
+  // };
 
   const handleRegister = async () => {
     try {
@@ -23,31 +41,38 @@ const Register = () => {
       });
 
       console.log(response.data); // Handle success response
+      setRegistrationSuccess(true); // Set registration success message to true
+      window.alert('Registration successful!');
+      navigation('/login'); // Redirect to login page after successful registration
     } catch (error) {
-      console.error('Login failed:', error.message);
+      console.error('Registration failed:', error.message);
+      // Handle error response (duplicate email)
+      if (error.response && error.response.status === 409) {
+        // Email already registered, show error message
+        setError('Email already registered. Please use a different email.');
+      } else {
+        // Other errors, show generic error message
+        setError('Registration failed. Please try again later.');
+      }
     }
   };
 
 
   return (
     <section className="background-radial-gradient overflow-hidden">
-      <style>
-        {`.background-radial-gradient {
-          background-color: hsl(218, 41%, 15%);
-          background-image: radial-gradient(650px circle at 0% 0%,
-              hsl(218, 41%, 35%) 15%,
-              hsl(218, 41%, 30%) 35%,
-              hsl(218, 41%, 20%) 75%,
-              hsl(218, 41%, 19%) 80%,
-              transparent 100%),
-            radial-gradient(1250px circle at 100% 100%,
-              hsl(218, 41%, 45%) 15%,
-              hsl(218, 41%, 30%) 35%,
-              hsl(218, 41%, 20%) 75%,
-              hsl(218, 41%, 19%) 80%,
-              transparent 100%);
-        }`}
-      </style>
+      
+
+      {error && (
+        <div className="alert alert-danger" role="alert">
+          {error}
+        </div>
+      )}
+
+      {registrationSuccess && (
+        <div className="alert alert-success" role="alert">
+          Registration successful!
+        </div>
+      )}
 
       <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
         <div className="row gx-lg-5 align-items-center mb-5">
@@ -93,9 +118,15 @@ const Register = () => {
                     <div className="col-md-6 mb-4">
                       <div className="form-outline">
                         <input value={mobileNo} onChange={(e) => setMobileNo(e.target.value)} type="text" id="form3Example2" className="form-control" placeholder="Mobile No." required/>
+                        {/* <button className="btn btn-primary mt-2" onClick={sendOTP}>Send OTP</button> */}
                       </div>
                     </div>
                   </div>
+                  {mobileNo && (
+                    <div className="form-outline mb-4">
+                    {/* <input value={otp} onChange={(e) => setOtp(e.target.value)} type="text" id="form3Example5" className="form-control" placeholder="Enter OTP" required/> */}
+                    </div>
+                  )}
 
                   <div className="form-outline mb-4">
                     <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="form3Example4" className="form-control" placeholder="Password" required/>
