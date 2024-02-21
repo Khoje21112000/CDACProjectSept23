@@ -79,13 +79,10 @@ const Register = () => {
           <div className="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: 10 }}>
             <h1 className="my-5 display-5 fw-bold ls-tight" style={{ color: 'hsl(218, 81%, 95%)' }}>
               The best offer <br />
-              <span style={{ color: 'hsl(218, 81%, 75%)' }}>for your business</span>
+              <span style={{ color: 'hsl(218, 81%, 75%)' }}>for your Bright Future </span>
             </h1>
             <p className="mb-4 opacity-70" style={{ color: 'hsl(218, 81%, 85%)' }}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Temporibus, expedita iusto veniam atque, magni tempora mollitia
-              dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-              ab ipsum nisi dolorem modi. Quos?
+            Let India’s top-rated health insurance cover for your family..
             </p>
           </div>
 

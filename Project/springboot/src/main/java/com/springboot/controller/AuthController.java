@@ -9,8 +9,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.springboot.jparepository.IndividualPolicyRepository;
 import com.springboot.jparepository.UserRepository;
+import com.springboot.model.IndividualPolicy;
 import com.springboot.model.User;
+
+
 
 @CrossOrigin
 @RestController
@@ -18,7 +22,23 @@ public class AuthController {
 
 	@Autowired
 	private UserRepository userRepository;
+	
 
+	@Autowired
+	 private  IndividualPolicyRepository policyRepository;
+
+	
+	@PostMapping("/individual-api")
+	public ResponseEntity<String> addPolicy(@RequestBody IndividualPolicy policy) {
+       try {
+           IndividualPolicy savedPolicy = policyRepository.save(policy);
+           return new ResponseEntity<>("Policy added with ID: " + savedPolicy.getPolicyHolderId(), HttpStatus.CREATED);
+       } catch (Exception e) {
+           return new ResponseEntity<>("Failed to add policy", HttpStatus.INTERNAL_SERVER_ERROR);
+       }
+   }
+	
+	
 //	@PostMapping("/register")
 //	public String register(@RequestBody User user) {
 ////		User existingUser = userRepository.findByEmail(user.getEmail());
@@ -28,6 +48,11 @@ public class AuthController {
 ////		}
 //		return "Registration successful";
 //	}
+	
+	
+	
+	
+	
 
 	@PostMapping("/register")
 	public ResponseEntity<String> register(@RequestBody User user) {
@@ -67,7 +92,6 @@ public class AuthController {
 		}
 	}
 	
-
 	// Store generated OTPs temporarily (in-memory map)
 //    private Map<String, String> otpMap = new HashMap<>();
 
@@ -113,6 +137,8 @@ public class AuthController {
 //		return String.valueOf(otp);
 //	}
 
+	
+	
 	
 
 }

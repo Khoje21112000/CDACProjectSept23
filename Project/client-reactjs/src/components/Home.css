@@ -12,13 +12,13 @@
   
 }
 
-* {
+/* * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-  }
+  } */
   
-  .section__container {
+  .section__container__1 {
     max-width: var(--max-width);
     margin: auto;
     padding: 5rem 1rem;
@@ -26,13 +26,8 @@
     
   }
 
-  .section__container_2{
-    max-width: var(--max-width);
-    margin: auto;
-   padding-bottom: 20px;
-    
-  }
-  .btn {
+
+  /* .btn {
     padding: 0.75rem 2rem;
     outline: none;
     border: none;
@@ -43,31 +38,34 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
-  img {
+   */
+  /* img {
     width: 100%;
     display: flex;
-  }
+  } */
   
-  a {
+  /* a {
     text-decoration: none;
-  }
+  } */
   
   body {
     font-family: "Poppins", sans-serif;
   }
+
+
+  /* Header Container */
   header {
     background-image: linear-gradient(
         to right,
         rgba(18, 172, 142, 0.9),
         rgba(18, 172, 142, 0.7)
       ),
-      url("../assets/health-homepage.jpg");
+      url("./assets/health-homepage.jpg");
     background-position: center ;
     background-size:cover;
     background-repeat: no-repeat;
   }
-  .nav__container {
+  /* .nav__container {
     padding: 2rem 1rem;
     display: flex;
     align-items: center;
@@ -100,11 +98,8 @@
   
   .link a:hover {
     color: var(--white);
-  }
-/* Header Container */
+  } */
 
-
-  
   .header__container h1 {
     margin-bottom: 1rem;
     max-width: 900px;
@@ -121,7 +116,7 @@
   /*body part  */
 
 
-  .row{
+  /* .row{
     margin-right: 15px;
     margin-left: 15px;
 
@@ -130,8 +125,15 @@
   .text-center{
     text-align:start;
     font-size: 20px;
-  }
+  } */
   /* service */
+
+  .section__container__2 {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+   
+  }
 
   .service__grid {
     margin-top: 4rem;
@@ -140,17 +142,18 @@
     gap: 2.5rem;
 
   }
-  .service_plan{
+  /* .service_plan{
    margin: auto;
+   margin-top: 30px;
     font-size: 25;
     font-weight: 600;
-  }
+  } */
   .service_plan h1 {
-    max-width: 1200px;
     text-align: center;
     font-weight: bold;
     color: var(--text-dark);
-   
+    margin-top: 30px;
+    
   }
   .service__card {
     padding: 2rem;
@@ -198,16 +201,19 @@
   }
 
 /*  flip_cards*/
-
+/* .section__container_3{
+  max-width: var(--max-width);
+  margin: auto;
+  height: 400px;
+}
 
 .eligiblity_coverage {
   box-sizing: border-box;
   margin-bottom: 10px;
-  margin-top: 2px;
+  margin-top: 20px;
 }
 
-/* Create three equal columns that floats next to each other */
-.column {
+.columnwise {
   float:inline-end;
   width: 33.33%;
   padding: 25px;
@@ -215,40 +221,97 @@
   
 }
 
-.column img {
+.columnwise img {
     border-radius: 3%;
 }
 
-.column h3  {
+.columnwise h3  {
   margin-top: 20px;
     text-align: center;
 }
 
-.column p
+.columnwise p
 {
   margin-top: 10px;
   text-align: justify;
 
+} */
+.section__container_3 {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 20px 10px;
+  background-color: #f4f5f7;
+
 }
-/* jfzkjndkjfndnz------------------------------------------- */
+
+.eligiblity_coverage h1 {
+  text-align: right;
+  font-size: 40px;
+  margin-top: 20px;
+}
+.eligiblity_coverage p {
+text-align: center  ;
+  font-size: 20px;
+}
+
+
+.columnwise {
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.columnwise img {
+  display: block;
+  width: 100%;
+  border-radius: 3%;
+}
+
+.columnwise h3 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.columnwise p {
+  margin-top: 10px;
+  text-align: flex;
+}
+
+@media screen and (min-width: 768px) {
+  .section__container_3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .columnwise {
+    width: calc(33.33% - 20px);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .columnwise {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Table------------------------------------------- */
 
 
 .eligibility-section {
 
-  margin: 20px auto;
+  margin:auto;
   max-width: 1200px;
-  padding-top: 350px;
   
 }
 
 .eligibility-section-heading {
-  
   font-size: 40px;
   text-shadow: #fb923c;
   text-align: center;
   margin-top: 30px;
   margin-bottom: 20px;
-
 }
 
 .key-features-table {
@@ -263,11 +326,14 @@
 }
 
 .detail-header, .criteria-header {
-  background-color: #f2f2f2;
-  font-weight: bold;
+  background-color: #959799;
+  font-size: 25px;
 }
 
-.detail, .criteria {
+.detail {
+  font-weight: bold;
+}
+.criteria{
   font-weight: normal;
 }
 
@@ -282,21 +348,19 @@
 
 /* *******Demo policies************ */
 
-.section__container_3{
-  max-width: var(--max-width);
+.section__container_4{
+  max-width: 1200px;
   margin: auto;
  padding-bottom: 20px;
- padding-top: 30px;
-  
+ padding-top: 40px;
 }
 .demo-policy h4
 {
   font-size: 50px;
-  font-weight: 600;
-  text-align: center;
+  font-weight: 800;
   margin-top: auto;
-  margin-bottom: 10px;
- 
+  margin-bottom: 20px;
+  text-align: center;
 
 }
 
@@ -351,11 +415,16 @@
 
 .flipcard__img{
   display:flex 50%;
+  align-items: center;
 }
 
+
+
+
+
 .view-more {
-  margin-top: 25px;
- 
+  margin-top: 40px;
+  padding: center;
 }
 .discount
 {
@@ -364,54 +433,16 @@
 
 .view-more__btn {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #b1cff0;
+  color: #232222;
   text-decoration: none;
-  border-radius: 5px;
- margin-left: 45%;
-
+    outline: rgb(154, 151, 151) solid;
+    border-radius: 8px;
+    cursor: pointer;
+ 
 }
 
 .view-more__btn:hover {
-  background-color: #0056b3;
-}
-
-/* -----------------------------Footer---------------------------------------------------------- */
-
-
-.footer {
+  background-color: #f36868;
   
-  bottom: 0;
-  width: 100%;
-  background-color: #45526e;
-  color: white;
-  padding-top: 400px;
-  padding-bottom: 20px;
-}
-
-.footer-title {
-  font-weight: bold;
-}
-
-.footer-link {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-link:hover {
-  text-decoration: underline;
-}
-
-.footer-copy {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.btn-floating {
-  color: white;
-  border-color: white;
-}
-
-.btn-floating:hover {
-  color: #4180cb;
-  border-color: #4180cb;
-}
+} 

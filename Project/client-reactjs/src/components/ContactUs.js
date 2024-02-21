@@ -36,7 +36,7 @@ const ContactUs = () => {
         <div className="mb-3">
           <textarea name="message" className="form-control" id="message" rows="4" placeholder='Message'></textarea>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" >
           Send Feedback
         </button>
       </form>
