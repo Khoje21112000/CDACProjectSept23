@@ -9,6 +9,15 @@ import ContactUs from "./ContactUs";
 import Lander from "./Lander";
 import Footer from "./Footer";
 import About from "./About";
+import ViewMemberPage from './ViewMemberPage';
+import AddFamilyMemberForm from './FamilyPolicy';
+import Payment from './Payment';
+import IndividualPolicy from "./IndividualPolicy";
+
+import DashBoard from "./AdminDashBoard/DashBoard";
+import AddPolicyForm from "./AdminDashBoard/AddPolicyForm";
+import ViewPolicyToAdmin from "./AdminDashBoard/ViewPolicyToAdmin";
+import SideBar from "./AdminDashBoard/SideBar";
 
 const Router = () => {
   return (
@@ -16,6 +25,7 @@ const Router = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
+
           <Route path="/" element={<Home />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/Home" element={<Home />} />
@@ -23,7 +33,18 @@ const Router = () => {
           <Route path="/About" element={<About/>} />
           <Route path="/Login" element={<Login/>} />
           <Route path="/Lander" element={<Lander/>} />
-        </Routes>
+          <Route path="/IndividualPolicy" element={<IndividualPolicy />} />
+          <Route path="/ViewMemberPage" element={<ViewMemberPage />} />
+          <Route path="/FamilyPolicy" element={<AddFamilyMemberForm/>} />
+          <Route path="/Payment" element={<Payment />} />
+       
+        //-----------Admin DashBoard-----------------------------
+        
+          <Route path="/Dashboard" element={<DashBoard />} />
+          <Route path="/AdminDashBoard/AddPolicyForm" element={<AddPolicyForm />} />
+          <Route path="/AdminDashBoard/SideBar" element={<SideBar />} />
+          <Route path="/AdminDashBoard/ViewPolicyToAdmin" element={<ViewPolicyToAdmin/>} />
+          </Routes>
       </BrowserRouter>
       <Footer />
     </div>
@@ -31,3 +52,5 @@ const Router = () => {
 };
 
 export default Router;
+
+

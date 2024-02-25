@@ -1,24 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "./Lander.css";
-import { useNavigate } from 'react-router-dom';
+import "./ViewPolicyToAdmin.css";
 
-const Lander = () => {
+const ViewPolicyToAdmin = () => {
     const [policyData, setPolicyData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [selectedPeriod, setSelectedPeriod] = useState(null);
     const [selectedPrice, setSelectedPrice] = useState(null);
     const [selectedType, setSelectedType] = useState(null);
-
-    const navigate = useNavigate(); 
-
-    // const handleButtonClick = () => {
-    //     if (selectedType === 'Family') {
-    //         navigate('/FamilyPolicy');
-    //     } else if (selectedType === 'Individual') {
-    //         navigate('/IndividualPolicy');
-    //     }
-    // };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,8 +17,11 @@ const Lander = () => {
                     url = `http://localhost:8080/view-policy-api/years/${selectedPeriod}`;
                 } else if (selectedPrice) {
                     url = `http://localhost:8080/view-policy-api/price/${selectedPrice}`;
-                } else if (selectedType) {
+                } else if (selectedPrice) {
                     url = `http://localhost:8080/view-policy-api/type/${selectedType}`;
+                    console.log(selectedType);
+                } else if (selectedPeriod,selectedPrice){
+                    url = ''
                 }
                 const response = await axios.get(url);
                 setPolicyData(response.data);
@@ -53,21 +45,6 @@ const Lander = () => {
 
     const handleTypeChange = event => {
         setSelectedType(event.target.value);
-    };
-
-    // const handleBuyPolicy = (policy) => {
-    //     localStorage.setItem('selectedPolicy', JSON.stringify(policy));
-    //     navigate(`/${selectedType}Policy`);
-    // };
-
-     const handleBuyPolicy = (policy) => {
-        navigate(`/${selectedType}Policy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
-        if (selectedType === 'Family') {
-            navigate(`/FamilyPolicy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
-        } else if (selectedType === 'Individual') {
-            navigate(`/IndividualPolicy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
-        }
-        // navigate(`/Payment?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
     };
 
     if (isLoading) {
@@ -125,12 +102,6 @@ const Lander = () => {
                                     <p><strong>Type :</strong> {type}</p>
                                 </div>
                             </div>
-                            <div className="lander-card-button">
-                                <button className="lander-buy-button" color='lightgreen' onClick={()=> handleBuyPolicy(curPost)}>Buy Policy</button>
-                            </div>
-
-                            {/* (handleButtonClick)=> handleBuyPolicy(curPost) */}
-
                         </div>
                     );
                 })}
@@ -139,4 +110,4 @@ const Lander = () => {
     );
 };
 
-export default Lander;
+export default ViewPolicyToAdmin;

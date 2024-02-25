@@ -136,7 +136,7 @@ const Home = () => {
 
       <section className="section__container_4">
         <div className="demo-policy">
-          <h4>Our Top Dealing Policies </h4>
+          <h4>Our Top Trending Policies </h4>
         </div>
 
         <div className="flipcard-container">

@@ -1,6 +1,8 @@
+// Navbar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'; 
+
 
 const Navbar = () => {
   return (
@@ -12,8 +14,15 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
+            <li className="nav-item">
               <Link className="nav-link" to="/Home">Home</Link>
+            </li>
+            
+            <li className="nav-item">
+              <Link className="nav-link" to="/About">About</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Contactus">Contactus</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/Register">Register</Link>
@@ -21,12 +30,7 @@ const Navbar = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/Login">Login</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/About">About</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/Contactus">Contactus</Link>
-            </li>
+            
           </ul>
         </div>
       </div>

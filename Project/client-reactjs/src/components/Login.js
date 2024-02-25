@@ -19,10 +19,23 @@ const Login = () => {
         password,
       });
       console.log(response.data);
-      if (response.data === "Success") {
-        navigation('/Lander');
-      } else {
-        // Handle error here, for example, show an error message
+      
+
+      
+        // Assuming response.data contains UserType
+        const userType = response.data.userType;
+        if (userType === "Normal") {
+          navigation('/Lander');
+        } 
+        else if (userType === "Admin") {
+          navigation('/Dashboard');
+        }
+      
+      // if (response.data === "Success") {
+      //   navigation('/Lander');
+      // } 
+      else {
+        // Handle error here, for example, show an error message 
         setError('Invalid email or password');
       }
      // Handle success response

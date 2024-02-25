@@ -1,0 +1,32 @@
+/* Payment.css */
+
+.payment-container {
+    margin: 20px;
+}
+
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.payment-table th {
+    background-color: #f2f2f2; /* Light grey background for table header */
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.payment-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Alternate row colors */
+.payment-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light grey background for even rows */
+}
+
+.payment-table tbody tr:nth-child(odd) {
+    background-color: #fff; /* White background for odd rows */
+}

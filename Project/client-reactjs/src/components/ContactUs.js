@@ -10,12 +10,13 @@ const ContactUs = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
+      .sendForm('service_yn6chld', 'template_9afw1b8', form.current, {
+        publicKey: '6L4oIvFnj9XiNhYIG',
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          alert('SUCCESS!');
+          form.current.reset();
         },
         (error) => {
           console.log('FAILED...', error.text);
@@ -28,10 +29,10 @@ const ContactUs = () => {
       <h2>Contact Us</h2><br/>
       <form ref={form} onSubmit={sendEmail}> 
         <div className="mb-3">
-          <input type="text" name="user_name" className="form-control" id="name" placeholder='Name'/>
+          <input type="text" name="from_name" className="form-control" id="name" placeholder='Enter your Name'/>
         </div>
         <div className="mb-3">
-          <input type="email" name="user_email" className="form-control" id="email" placeholder='Email'/>
+          <input type="email" name="from_email" className="form-control" id="email" placeholder='Enter your Email'/>
         </div>
         <div className="mb-3">
           <textarea name="message" className="form-control" id="message" rows="4" placeholder='Message'></textarea>
