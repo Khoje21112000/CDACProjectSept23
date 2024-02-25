@@ -4,6 +4,8 @@ package hims.policy.service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -27,6 +29,11 @@ public class PolicyService {
 				policyRepositoryRef.findAll();
 		return allPolicy;
 	}
+	
+	public Policy getPolicyById(Integer policyId) {
+        Optional<Policy> policyOptional = policyRepositoryRef.findById(policyId);
+        return policyOptional.orElse(null); // Return null if policy is not found
+    }
 //-------------------filter policy by policy period--------------------
 	public List<Policy> findAllPeriod(String policyPeriod)
 	{

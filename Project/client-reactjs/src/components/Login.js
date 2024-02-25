@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, useNavigate } from 'react-router-dom';
+import './Login.css';
+import logo from './assets/login_logo.png';
+import NavbarHeader from './NavbarHeader';
+import Footer from './Footer';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -18,8 +22,16 @@ const Login = () => {
         email,
         password,
       });
+       var token  = response.data;
+
+       localStorage.setItem('token', JSON.stringify(token));
+
+
+      // Store token in local storage
+      localStorage.setItem('token', token);
       console.log(response.data);
-      
+      console.log(token);
+      console.log(token.id);
 
       
         // Assuming response.data contains UserType
@@ -28,7 +40,7 @@ const Login = () => {
           navigation('/Lander');
         } 
         else if (userType === "Admin") {
-          navigation('/Dashboard');
+          navigation('/AdminDashBoard/SideBar');
         }
       
       // if (response.data === "Success") {
@@ -76,9 +88,12 @@ const Login = () => {
 
 
   return (
-    <div className="container mt-5">
+    <>
+    <NavbarHeader></NavbarHeader>
+    <div className="login-container"> {/* Added custom class for styling */}
       <div className="card">
         <div className="card-body">
+          <img src={logo} alt="Logo" className="logo"/> {/* Include logo image with 80x80 size */}
           <h2 className="card-title">Login</h2>
           <form>
 
@@ -165,7 +180,8 @@ const Login = () => {
         </div>
       </div>
     </div>
-
+    <Footer></Footer>
+    </>
     
   );
 };

@@ -1,30 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./ViewPolicyToAdmin.css";
+import { useNavigate } from 'react-router-dom';
 
 const ViewPolicyToAdmin = () => {
     const [policyData, setPolicyData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [selectedPeriod, setSelectedPeriod] = useState(null);
-    const [selectedPrice, setSelectedPrice] = useState(null);
-    const [selectedType, setSelectedType] = useState(null);
+    const [dataCount, setDataCount] = useState(0); 
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                let url = "http://localhost:8080/view-policy-api";
-                if (selectedPeriod) {
-                    url = `http://localhost:8080/view-policy-api/years/${selectedPeriod}`;
-                } else if (selectedPrice) {
-                    url = `http://localhost:8080/view-policy-api/price/${selectedPrice}`;
-                } else if (selectedPrice) {
-                    url = `http://localhost:8080/view-policy-api/type/${selectedType}`;
-                    console.log(selectedType);
-                } else if (selectedPeriod,selectedPrice){
-                    url = ''
-                }
+                const url = "http://localhost:8080/view-policy-api";
                 const response = await axios.get(url);
                 setPolicyData(response.data);
+                setDataCount(response.data.length);
                 setIsLoading(false);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -33,18 +24,20 @@ const ViewPolicyToAdmin = () => {
         };
 
         fetchData();
-    }, [selectedPeriod, selectedPrice, selectedType]);
+    }, []);
 
-    const handlePeriodChange = event => {
-        setSelectedPeriod(event.target.value);
+    const handleRedirectUpdate = (policyId) => {
+        navigate(`/Update/${policyId}`);
     };
 
-    const handlePriceChange = event => {
-        setSelectedPrice(event.target.value);
-    };
-
-    const handleTypeChange = event => {
-        setSelectedType(event.target.value);
+    const handleDelete = async (policyId) => {
+        try {
+            await axios.delete(`http://localhost:1111/delete-policy-api/${policyId}`);
+            setPolicyData(policyData.filter(policy => policy.policyId !== policyId));
+            setDataCount(dataCount - 1);
+        } catch (error) {
+            console.error('Error deleting policy:', error);
+        }
     };
 
     if (isLoading) {
@@ -53,54 +46,38 @@ const ViewPolicyToAdmin = () => {
 
     return (
         <div className='policy-div'>
-            <div className="lander-dropdowns-container">
-                <select className="lander-select" onChange={handlePeriodChange} value={selectedPeriod}>
-                    <option value="">Select Policy Period</option>
-                    <option value="3 Years">3 Years</option>
-                    <option value="5 Years">5 Years</option>
-                    <option value="7 Years">7 Years</option>
-                    <option value="12 Years">12 Years</option>
-                </select>
-                <select className="lander-select" onChange={handlePriceChange} value={selectedPrice}>
-                    <option value="">Select Policy Price</option>
-                    <option value="3 Lakh">3 Lakh</option>
-                    <option value="5 Lakh">5 Lakh</option>
-                    <option value="7 Lakh">7 Lakh</option>
-                    <option value="12 Lakh">12 Lakh</option>
-                </select>
-                <select className="lander-select" onChange={handleTypeChange} value={selectedType}>
-                    <option value="">Select Policy Type</option>
-                    <option value="Individual">Individual</option>
-                    <option value="Family">Family</option>
-                </select>
-            </div>
-            <div className="lander-card-container">
+            <h2>Total Data Count: {dataCount}</h2>
+            <div className="policy-card-container">
                 {policyData.map((curPost) => {
-                    const { policyName, keyFeatures, sumInsured, premium, policyNo, policyPeriod, coverageType } = curPost;
+                    const { policyName, keyFeatures, sumInsured, premium, policyNo, policyPeriod, policyId, coverageType } = curPost;
                     const { type } = coverageType;
 
                     return (
-                        <div className="lander-card" key={policyNo}>
-                            <div className="lander-card-info">
-                            <h2>Policy No: {policyNo}</h2>
-                                <h2>Policy Name : {policyName}</h2>
+                        <div className="policy-card" key={policyId}>
+                            <div className="policy-card-info">
+                                <h2>Policy No: {policyNo}</h2>
+                                <h2>Policy Name: {policyName}</h2>
                             </div>
-                            <p><strong>Key Features :</strong> {keyFeatures}</p>
-                            <div className="lander-policy-info">
-                                <div className="lander-policy-details">
-                                    <p><strong>Sum Insured :</strong> {sumInsured}</p>
+                            <p><strong>Key Features:</strong> {keyFeatures}</p>
+                            <div className="policy-info">
+                                <div className="policy-details">
+                                    <p><strong>Sum Insured:</strong> {sumInsured}</p>
                                 </div>
-                                <div className="lander-policy-details">
-                                    <p><strong>Premium :</strong> {premium}</p>
+                                <div className="policy-details">
+                                    <p><strong>Premium:</strong> {premium}</p>
                                 </div>
                             </div>
-                            <div className="lander-policy-info">
-                                <div className="lander-policy-details">
-                                    <p><strong>Policy Period :</strong> {policyPeriod}</p>
+                            <div className="policy-info">
+                                <div className="policy-details">
+                                    <p><strong>Policy Period:</strong> {policyPeriod}</p>
                                 </div>
-                                <div className="lander-policy-details">
-                                    <p><strong>Type :</strong> {type}</p>
+                                <div className="policy-details">
+                                    <p><strong>Type:</strong> {type}</p>
                                 </div>
+                            </div>
+                            <div className="button-container">
+                                <button className="update-button" onClick={() => handleRedirectUpdate(policyId)}>Update</button>
+                                <button className="delete-button" onClick={() => handleDelete(policyId)}>Delete</button>
                             </div>
                         </div>
                     );

@@ -1,9 +1,11 @@
-// AddFamilyMember.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './IndividualPolicy.css';
 import { useNavigate } from 'react-router-dom';
+import NavbarHeader from './NavbarHeader';
+import Footer from './Footer';
+
+
 
 const IndividualPolicy = () => {
   const [fullName, setFullName] = useState('');
@@ -24,10 +26,10 @@ const IndividualPolicy = () => {
     }
 }, [navigate]);
     
-  const handleButtonClick = () => {
+  // const handleButtonClick = () => {
      
-      navigate('/Payment');
-  };
+  //     navigate('/Payment');
+  // };
 
   if (!policyData) {
     return <h1>Loading...</h1>;
@@ -40,24 +42,31 @@ const IndividualPolicy = () => {
       alert('Please fill out all required fields.');
       return;
     }
+    // Create formData object to store form data
+    const formData = {
+      fullName,
+      mobileNo,
+      dateOfBirth,
+      gender,
+      occupation,
+    
+    };
+
+    localStorage.setItem('individualFormData', JSON.stringify(formData));
 
     // Send POST request to create new family member
     try {
-      const response = await axios.post('http://localhost:8080/individual-api', {
-        fullName,
-        mobileNo,
-        dateOfBirth,
-        gender,
-        occupation,
-      });
-      
+      await axios.post('http://localhost:8080/individual-api', formData);
+    
       alert('Family member added successfully.');
+      navigate('/Payment');
       // Clear form fields
       setFullName('');
       setMobileno('');
       setDateOfBirth('');
       setGender('');
       setOccupation('');
+      
     } catch (error) {
       console.error('Error adding family member:', error);
       alert('An error occurred. Please try again later.');
@@ -65,6 +74,8 @@ const IndividualPolicy = () => {
   };
 
   return (
+    <>
+    <NavbarHeader></NavbarHeader>
     <div className='container'>
     <div className='form-container'>
       <h2>Add Individual details</h2>
@@ -131,11 +142,11 @@ const IndividualPolicy = () => {
         {/* <button type="submit" className="btn btn-primary">Add Family Member</button>
         <span style={{ marginRight: '170px' }}></span> */}
        {/* <h2>Policy Name: {policyData.policyName}</h2> */}
-        <button onClick={handleButtonClick} style={{ backgroundColor: '#007bff', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}>Proceed to Payment</button>
+        <button onClick={handleSubmit} style={{ backgroundColor: '#007bff', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}>Proceed to Payment</button>
        
       </form>
     </div>
-
+        
     <div className="policy-details">
         <h2>Policy Details:</h2>
         <table style={{ border: '1px solid black', borderCollapse: 'collapse', width: '100%' }}>
@@ -170,8 +181,9 @@ const IndividualPolicy = () => {
       </div>
     
     </div>
-
+    <Footer></Footer>
+    </>
   );
 };
 
-export default IndividualPolicy;
+export default IndividualPolicy

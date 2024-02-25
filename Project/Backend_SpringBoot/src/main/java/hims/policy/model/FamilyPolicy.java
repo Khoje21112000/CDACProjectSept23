@@ -10,7 +10,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -23,7 +23,7 @@ public class FamilyPolicy {
 	private Long memberId;
 
 	@OneToMany(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "user_id")	
+	@JoinColumn(name = "user_id")	
 	private List<User> user; // Reference to the user to which this family member belongs
 
 	@Column(name = "full_name")
@@ -39,6 +39,8 @@ public class FamilyPolicy {
 	private String gender;
 
 	private String occupation;
+	
+	
 
 	public Long getMemberId() {
 		return memberId;

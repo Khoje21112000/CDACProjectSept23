@@ -18,6 +18,7 @@ function ViewMemberPage() {
     } catch (error) {
       console.error('Error fetching family members:', error);
       // Handle error
+      
     }
   }
 
@@ -38,6 +39,8 @@ function ViewMemberPage() {
   };
 
   const handlePaymentButtonClick = () => {
+    const selectedMember = familyMembers.find(member => member.memberId === member);
+    localStorage.setItem('selectedMember', JSON.stringify(selectedMember));
     navigate('/Payment'); // Navigate to the payment page
   };
 
@@ -55,13 +58,14 @@ function ViewMemberPage() {
           <p><strong>Occupation:</strong> {member.occupation}</p>
           <div>
             <button onClick={() => handleRemoveMember(member.memberId)} >Remove</button>
+            <button onClick={() => handlePaymentButtonClick(member.memberId)}>Proceed to Payment</button>
           </div>
         </div>
       ))}
     </div>
     <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'center', gap: '10px' }}>
       <button onClick={handleBackButtonClick} style={{ backgroundColor: '#007bff', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}>Go Back</button>
-      <button onClick={handlePaymentButtonClick} style={{ backgroundColor: '#007bff', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}>Proceed to Payment</button>
+      {/* <button onClick={handlePaymentButtonClick} style={{ backgroundColor: '#007bff', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '5px', cursor: 'pointer' }}>Proceed to Payment</button> */}
     </div>
   </div>
   );

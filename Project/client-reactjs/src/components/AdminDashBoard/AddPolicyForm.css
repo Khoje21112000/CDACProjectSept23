@@ -1,51 +1,51 @@
 .form-container {
-    max-width: 700px; /* Increased width for better spacing */
-    margin: 20px auto; /* Added margin to create space between the form and the container */
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  textarea,
-  select {
-    width: calc(100% - 30px); /* Adjusted width to accommodate padding */
-    padding: 10px 15px; /* Reduced padding to prevent extending beyond container */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .side-by-side {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  /* Add space between Sum Insured and Premium */
-  .side-by-side > div {
-    width: 48%; /* Adjusted width to create space */
-  }
-  
-  .submit-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 12px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
+  max-width: 700px; /* Increased width for better spacing */
+  margin: 20px auto; /* Added margin to create space between the form and the container */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select {
+  width: calc(100% - 30px); /* Adjusted width to accommodate padding */
+  padding: 10px 15px; /* Reduced padding to prevent extending beyond container */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.side-by-side {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Add space between Sum Insured and Premium */
+.side-by-side > div {
+  width: 48%; /* Adjusted width to create space */
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}

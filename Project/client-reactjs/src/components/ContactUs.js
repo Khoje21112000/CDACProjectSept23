@@ -1,6 +1,11 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from './assets/Contact_Us_Logo.png'; 
+import './ContactUs.css'
+import NavbarHeader from './NavbarHeader';
+import Footer from './Footer';
+
 
 const ContactUs = () => {
 
@@ -25,7 +30,11 @@ const ContactUs = () => {
   };
 
   return (
+    <>
+    <NavbarHeader></NavbarHeader>
     <div className="container mt-5">
+        <img src={logo} alt="Logo" className="logo" style={{ width: '80px', height: '80px' }} /> {/* Include logo image with 30x30 size */}
+
       <h2>Contact Us</h2><br/>
       <form ref={form} onSubmit={sendEmail}> 
         <div className="mb-3">
@@ -42,6 +51,8 @@ const ContactUs = () => {
         </button>
       </form>
     </div>
+    <Footer></Footer>
+    </>
   );
 };
 

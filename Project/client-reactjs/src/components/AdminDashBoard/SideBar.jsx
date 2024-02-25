@@ -14,7 +14,7 @@ import { Button } from 'reactstrap';
 
 
 
-function SideBar() {
+function Sidebar() {
   return (
 
     <div id="parentdiv">
@@ -34,9 +34,9 @@ function SideBar() {
    
 		<ul className="side-menu top">
 			<li >
-				<a href="/DashBoard">
-        <box-icon name='DashBoard' type='solid' ></box-icon>
-					<span className="text">DashBoard</span>
+				<a href="/dashboard">
+        <box-icon name='dashboard' type='solid' ></box-icon>
+					<span className="text">Dashboard</span>
 				</a>
 			</li>
 			<li>
@@ -46,14 +46,14 @@ function SideBar() {
 				</a>
 			</li>
             <li>
-				<a href="/ViewPolicyToAdmin">
+				<a href="/AdminDashBoard/ViewPolicyToAdmin">
         <box-icon type='solid' name='cart-add'></box-icon>
 					<span className="text">Policy</span>
 				</a>
 			</li>
           
       <li>
-				<a href="/AddPolicyForm">
+				<a href="/AdminDashBoard/AddPolicyForm">
         <box-icon type='solid' name='cart-add'></box-icon>
 					<span className="text">Add policy</span>
 				</a>
@@ -74,4 +74,4 @@ function SideBar() {
 
 }
 
-export default SideBar
+export default Sidebar

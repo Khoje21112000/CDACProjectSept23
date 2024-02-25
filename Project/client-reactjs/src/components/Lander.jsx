@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./Lander.css";
 import { useNavigate } from 'react-router-dom';
+import NavbarHeader from './NavbarHeader';
+import Footer from './Footer';
 
 const Lander = () => {
     const [policyData, setPolicyData] = useState([]);
@@ -59,13 +61,18 @@ const Lander = () => {
     //     localStorage.setItem('selectedPolicy', JSON.stringify(policy));
     //     navigate(`/${selectedType}Policy`);
     // };
+    
 
+// Now you can use userId in your code as needed
+    
      const handleBuyPolicy = (policy) => {
         navigate(`/${selectedType}Policy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
         if (selectedType === 'Family') {
             navigate(`/FamilyPolicy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
+           
         } else if (selectedType === 'Individual') {
             navigate(`/IndividualPolicy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
+            
         }
         // navigate(`/Payment?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
     };
@@ -75,6 +82,8 @@ const Lander = () => {
     }
 
     return (
+        <>
+        <NavbarHeader></NavbarHeader>
         <div className='policy-div'>
             <div className="lander-dropdowns-container">
                 <select className="lander-select" onChange={handlePeriodChange} value={selectedPeriod}>
@@ -136,6 +145,8 @@ const Lander = () => {
                 })}
             </div>
         </div>
+        <Footer></Footer>
+        </>
     );
 };
 

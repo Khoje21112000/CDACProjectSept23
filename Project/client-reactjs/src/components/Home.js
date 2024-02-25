@@ -1,12 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import NavbarHeader from "./NavbarHeader";
+import Footer from "./Footer";
+
 
 const Home = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Optional: Adds smooth scrolling animation
+    });
+  };
+
   return (
     <>
+    <NavbarHeader></NavbarHeader>
       <header>
-        <div className="section__container__1">
+        <div className="section_container_1">
           <div className="header__container">
             <h1>Providing an Exceptional Health Security</h1>
             <p>
@@ -19,29 +30,6 @@ const Home = () => {
           </div>
         </div>
       </header>
-
-      <section className="section__container__2">
-        <div className="service_plan">
-          <h1>Presenting Active Health Platinum-Enhanced Plan</h1>
-        </div>
-        <div className="service__grid">
-          <div className="service__card">
-            <span>
-              <i className="ri-microscope-line"></i>
-            </span>
-            <p>Get up to 100% of your premium as HealthReturnsTM</p>
-          </div>
-          <div className="service__card">
-            <span>
-              <i className="ri-mental-health-line"></i>
-            </span>
-            <p>
-              Day 1 Cover for Chronic Conditions such as Diabetes & High Blood
-              Pressure
-            </p>
-          </div>
-        </div>
-      </section>
 
       <section className="section__container_3">
         <div className="eligiblity_coverage">
@@ -82,6 +70,29 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="section_container_2">
+        <div className="service_plan">
+          <h1>Presenting Active Health Platinum-Enhanced Plan</h1>
+        </div>
+        <div className="service__grid">
+          <div className="service__card">
+            <span>
+              <i className="ri-microscope-line"></i>
+            </span>
+            <p>Get up to 100% of your premium as HealthReturnsTM</p>
+          </div>
+          <div className="service__card">
+            <span>
+              <i className="ri-mental-health-line"></i>
+            </span>
+            <p>
+              Day 1 Cover for Chronic Conditions such as Diabetes & High Blood
+              Pressure
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="eligibility-section">
         <h2 className="eligibility-section-heading">
           Eligibility Criteria for Health Gain Policy
@@ -96,7 +107,7 @@ const Home = () => {
               <tr>
                 <td className="detail">Age</td>
                 <td className="criteria">
-                  Child: 91 days to 25 years
+                  Child: 91 days to 17 years
                   <br />
                   Adult: 18 years to 65 years
                 </td>
@@ -106,27 +117,25 @@ const Home = () => {
                   Family Composition for Floater policy
                 </td>
                 <td className="criteria">
-                  Plus - Maximum of 2 Adults (Self + Spouse) and 6 children
+                  Plus - Maximum of 2 Adults (Self + Spouse)
                   <br />
-                  Power - Maximum of 4 Adults (Self + Spouse + one set of
-                  dependent Parents or Parents-in-law) and 6 children
+                  Power - Maximum of 2 Adults (Self + Spouse )  and 1 Child
                   <br />
-                  Prime - Maximum of 6 Adults (Self + Spouse + set of dependent
-                  Parents + set of Parents in law) and 6 children
+                  Prime - Maximum of 2 Adults (Self + Spouse ) and 2 Child
                 </td>
               </tr>
               <tr>
                 <td className="detail">Policy Period</td>
-                <td className="criteria">1 year, 2 years & 3 Years</td>
+                <td className="criteria">3 year, 5 years ,7 years & 12 years</td>
               </tr>
               <tr>
                 <td className="detail">Sum insured (₹)</td>
                 <td className="criteria">
                   Plus - 3 and 5 Lakh;
                   <br />
-                  Power - 10, 15 and 20 Lakhs,
+                  Power - upto 7 Lakhs,
                   <br />
-                  Prime - 25, 30, 50 and 100 Lakhs
+                  Prime - upto 10 Lakhs
                 </td>
               </tr>
             </tbody>
@@ -134,29 +143,77 @@ const Home = () => {
         </div>
       </section>
 
+      <div id="steps-to-buy" className="steps-container">
+        <div className="container">
+          <h1 className="main-heading">Steps To Buy Policy</h1>
+          <div className="steps-wrapper">
+            <div className="step">
+              <div className="circle">
+                <img src={require("./assets/th.jpg")} alt="Step 1" />
+              </div>
+              <div className="step-text">
+                <h3>Step 1</h3>
+                <h2> Fill the register form</h2>
+              </div>
+            </div>
+            <hr />
+            <div className="step">
+              <div className="circle">
+                <img src={require("./assets/th (2).jpg")} alt="Step 2" />
+              </div>
+              <div className="step-text">
+                <h3>Step 2</h3>
+                <h2>Choose the policy you want</h2>
+              </div>
+            </div>
+            <hr />
+            <div className="step">
+              <div className="circle">
+                <img src={require("./assets/th (3).jpg")} alt="Step 3" />
+              </div>
+              <div className="step-text">
+                <h3>Step 3</h3>
+                <h2>Complete payment details</h2>
+              </div>
+            </div>
+          </div>
+          <div className="view-more">
+            {/* Link to the register page with onClick event */}
+            <Link
+              to="/register"
+              className="view-more__btn"
+              onClick={scrollToTop}
+            >
+              Buy Policy
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <section className="section__container_4">
         <div className="demo-policy">
-          <h4>Our Top Trending Policies </h4>
+          <h4>Our Top Trending Policies</h4>
         </div>
 
         <div className="flipcard-container">
           <div className="flipcard">
-            <div className="flipcard__front flipcard__side">
+            <div className="flipcard_front flipcard_side">
               <div className="flipcard__img">
                 <img
-                  src={require("./assets/care_health_insurance_logo.png")}
-                  alt="Insurance Logo"
+                  src={require("./assets/prime.jpg")}
+                  alt="prime Logo" 
+                  style={{ width: "85%"  }}
                 />
+                <br/>
                 <h5 style={{ textAlign: "center" }}> ₹7,378 annually</h5>
               </div>
             </div>
-            <div className="flipcard__back flipcard__side">
+            <div className="flipcard_back flipcard_side">
               <div className="flipcard__text">
                 <ul>
                   <li className="discount">Inclusive of 5% direct discount</li>
                   <li>
-                    Option to reduce waiting period from 4 years to 30 days for
-                    Diabetes with 'Instant Cover' rider
+                    Option to reduce waiting period from 4 years to 30 days 
                   </li>
                   <li>Restoration of cover once a year</li>
                 </ul>
@@ -164,17 +221,22 @@ const Home = () => {
             </div>
           </div>
           <div className="flipcard">
-            <div className="flipcard__front flipcard__side">
+            <div className="flipcard_front flipcard_side">
               <div className="flipcard__text">
-              <img src={require("./assets/695.jpg")} alt="Insurance Logo" style={{ width: "95%" }} />
+                <img
+                  src={require("./assets/power.jpg")}
+                  alt="power Logo"
+                  style={{ width: "100%" ,paddingLeft: "20px" }}
+                />
 
-                <h5 style={{ textAlign: "center", marginTop: "20px" }}>
+                <h5 style={{ textAlign: "center",
+              marginTop:"20px" }}>
                   {" "}
                   ₹8,600 annually
                 </h5>
               </div>
             </div>
-            <div className="flipcard__back flipcard__side">
+            <div className="flipcard_back flipcard_side">
               <div className="flipcard__text">
                 <ul>
                   <li className="discount">
@@ -187,19 +249,19 @@ const Home = () => {
             </div>
           </div>
           <div className="flipcard">
-            <div className="flipcard__front flipcard__side">
+            <div className="flipcard_front flipcard_side">
               <div className="flipcard__text">
                 <img
-                  src={require("./assets/HDFC-Life-Insurance-Logo-Small.png")}
-                  alt="Insurance Logo"
+                  src={require("./assets/parent.jpg")}
+                  alt="parent Logo" style={{ width: "95%" ,paddingLeft: "20px" }}
                 />
-                <h5 style={{ textAlign: "center", marginTop: "20px" }}>
+                <h5 style={{ textAlign: "center", marginTop:"10px" }}>
                   {" "}
                   ₹10,200 annually
                 </h5>
               </div>
             </div>
-            <div className="flipcard__back flipcard__side">
+            <div className="flipcard_back flipcard_side">
               <div className="flipcard__text">
                 <ul>
                   <li className="discount">
@@ -214,13 +276,14 @@ const Home = () => {
           </div>
         </div>
 
-        {/* View more button */}
         <div className="view-more">
-          <Link to="/register" className="view-more__btn">
+          {/* Link to the register page with onClick event */}
+          <Link to="/register" className="view-more__btn" onClick={scrollToTop}>
             View more
           </Link>
         </div>
       </section>
+      <Footer></Footer>
     </>
   );
 };

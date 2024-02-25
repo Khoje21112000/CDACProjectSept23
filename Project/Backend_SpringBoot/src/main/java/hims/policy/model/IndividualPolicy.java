@@ -21,9 +21,9 @@ public class IndividualPolicy {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long policyHolderId;
 
-	@OneToOne(fetch = FetchType.LAZY)
+//	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")
-	private User user;
+	private int user;
 
 	@Column(name = "full_name")
 	private String fullName;
@@ -45,11 +45,11 @@ public class IndividualPolicy {
 		this.policyHolderId = policyHolderId;
 	}
 
-	public User getUser() {
+	public int getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(int user) {
 		this.user = user;
 	}
 

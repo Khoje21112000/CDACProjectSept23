@@ -45,7 +45,14 @@ public class PolicyController {
 		Collection<Policy> allPolicy = policyServiceRef.getAllPolicy();
 		return allPolicy;
 	}
-
+//------------------------------
+	
+	//GET http://localhost:1111/view-policy-api/{policyId}
+		@GetMapping("/view-policy-api/{policyId}")
+	    public Policy getPolicyById(@PathVariable("policyId") Integer policyId) {
+	        return policyServiceRef.getPolicy(policyId);
+	    }
+	
 //-------------------------get policy by years---------working-------------------------------------------------------------
 //GET http://localhost:1111/view-policy-api/years/5years
 	@GetMapping("/view-policy-api/years/{years}")

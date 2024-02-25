@@ -3,6 +3,8 @@ import './FamilyPolicy.css'
 import axios from 'axios';
 
 import { useNavigate } from 'react-router-dom';
+import NavbarHeader from './NavbarHeader';
+import Footer from './Footer';
 
 
 const AddFamilyMemberForm = ({ onSubmit }) => {
@@ -15,9 +17,8 @@ const AddFamilyMemberForm = ({ onSubmit }) => {
     // const [redirectToViewMember, setRedirectToViewMember] = useState(false);
 
     const navigate = useNavigate(); 
+
     
-
-
     const handleButtonClick = () => {
        
         navigate('/ViewMemberPage');
@@ -39,6 +40,7 @@ const AddFamilyMemberForm = ({ onSubmit }) => {
                 dateOfBirth,
                 gender,
                 occupation,
+              
             });
             alert('Family member added successfully.');
         //     // Clear form fields
@@ -55,6 +57,8 @@ const AddFamilyMemberForm = ({ onSubmit }) => {
     };
 
     return (
+        <>
+        <NavbarHeader></NavbarHeader>
 <div className='form-container'>
     <h2>Add Family Member Details</h2>
     <form onSubmit={handleSubmit}>
@@ -121,6 +125,8 @@ const AddFamilyMemberForm = ({ onSubmit }) => {
 
     </form>
 </div>
+<Footer></Footer>
+</>
     );
 };
 

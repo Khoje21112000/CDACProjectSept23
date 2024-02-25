@@ -18,14 +18,16 @@ import DashBoard from "./AdminDashBoard/DashBoard";
 import AddPolicyForm from "./AdminDashBoard/AddPolicyForm";
 import ViewPolicyToAdmin from "./AdminDashBoard/ViewPolicyToAdmin";
 import SideBar from "./AdminDashBoard/SideBar";
+import NavbarHeader from "./NavbarHeader";
+import Update from "./AdminDashBoard/Update";
 
 const Router = () => {
   return (
     <div>
       <BrowserRouter>
-        <Navbar />
+        
         <Routes>
-
+          {/* <Route path="" element ={<NavbarHeader></NavbarHeader>}></Route> */}
           <Route path="/" element={<Home />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/Home" element={<Home />} />
@@ -37,16 +39,16 @@ const Router = () => {
           <Route path="/ViewMemberPage" element={<ViewMemberPage />} />
           <Route path="/FamilyPolicy" element={<AddFamilyMemberForm/>} />
           <Route path="/Payment" element={<Payment />} />
-       
         //-----------Admin DashBoard-----------------------------
         
           <Route path="/Dashboard" element={<DashBoard />} />
           <Route path="/AdminDashBoard/AddPolicyForm" element={<AddPolicyForm />} />
           <Route path="/AdminDashBoard/SideBar" element={<SideBar />} />
           <Route path="/AdminDashBoard/ViewPolicyToAdmin" element={<ViewPolicyToAdmin/>} />
+          {/* <Router path="/Update/:policyId" element ={<Update></Update>}></Router> */}
           </Routes>
       </BrowserRouter>
-      <Footer />
+      
     </div>
   );
 };
