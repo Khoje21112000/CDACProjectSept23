@@ -2,6 +2,7 @@ import React from 'react';
 import './Payment.css'; // Import CSS file for styling
 import Footer from './Footer';
 import NavbarHeader from './NavbarHeader';
+import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
     // Extract individual details from the query parameters
@@ -14,12 +15,33 @@ const Payment = () => {
 
     // const individualFormData = JSON.parse(localStorage.getItem('individualFormData'));
 
+    const navigation = useNavigate();
+
     const individualFormData = JSON.parse(localStorage.getItem('individualFormData')) || {};
     const { fullName, mobileNo, dateOfBirth, gender, occupation } = individualFormData;
-    
+
+
+    // const familyFormData = JSON.parse(localStorage.getItem('familyFormData')) || {};
+    // const { fullName2, mobileNo2,relationship, dateOfBirth2, gender2, occupation2 } = familyFormData;
+
+
     // Extract policy details from localStorage
     const policyData = JSON.parse(localStorage.getItem('selectedPolicy'));
     const { policyNo, policyName, sumInsured, premium, policyPeriod, coverageType } = policyData;
+
+    // Calculate annual premium
+    const annualPremium = premium * 12;
+
+    const handleLogout = () => {
+        // Clear localStorage
+        // localStorage.clear();
+        // Redirect to login page or perform any other logout actions
+        // For example:
+        // window.location.href = '/login'; // Redirect to login page
+
+        navigation('/login');
+
+    };
 
     return (
         <>
@@ -78,6 +100,10 @@ const Payment = () => {
                             <td>{premium}</td>
                         </tr>
                         <tr>
+                            <td>Annual Premium:</td>
+                            <td>{annualPremium}</td>
+                        </tr>
+                        <tr>
                             <td>Policy Period:</td>
                             <td>{policyPeriod}</td>
                         </tr>
@@ -89,6 +115,11 @@ const Payment = () => {
                 </table>
             </div>
             {/* Additional payment form */}
+        </div>
+        <div className="buttons-container">
+            <button className="payment-button">Payment</button>
+            <button className="invoice-button">Invoice</button>
+            <button className="logout-button" onClick={handleLogout}>Logout</button>
         </div>
         <Footer></Footer>
         </>

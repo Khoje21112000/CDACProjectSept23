@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Sidebar from './SideBar';
 
 const Update = () => {
     const { policyId } = useParams();
@@ -33,7 +34,7 @@ const Update = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:1111/update-policy-api/policy/${policyId}`, formData);
+            await axios.put(`http://localhost:8080/update-policy-api/policy/${policyId}`, formData);
             console.log('Policy updated successfully');
         } catch (error) {
             console.error('Error updating policy:', error);
@@ -45,6 +46,8 @@ const Update = () => {
     }
 
     return (
+        <>
+        <Sidebar></Sidebar>
         <div className="form-container">
             <h2>Update Policy</h2>
             <form onSubmit={handleSubmit}>
@@ -79,6 +82,7 @@ const Update = () => {
                 <button type="submit" className="submit-button">Update</button>
             </form>
         </div>
+        </>
     );
 };
 

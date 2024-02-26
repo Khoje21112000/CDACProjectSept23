@@ -20,6 +20,7 @@ import ViewPolicyToAdmin from "./AdminDashBoard/ViewPolicyToAdmin";
 import SideBar from "./AdminDashBoard/SideBar";
 import NavbarHeader from "./NavbarHeader";
 import Update from "./AdminDashBoard/Update";
+import PolicyHolder from "./AdminDashBoard/PolicyHolder";
 
 const Router = () => {
   return (
@@ -42,10 +43,11 @@ const Router = () => {
         //-----------Admin DashBoard-----------------------------
         
           <Route path="/Dashboard" element={<DashBoard />} />
+          <Route path="/PolicyHolder" element={<PolicyHolder/>} />
           <Route path="/AdminDashBoard/AddPolicyForm" element={<AddPolicyForm />} />
           <Route path="/AdminDashBoard/SideBar" element={<SideBar />} />
           <Route path="/AdminDashBoard/ViewPolicyToAdmin" element={<ViewPolicyToAdmin/>} />
-          {/* <Router path="/Update/:policyId" element ={<Update></Update>}></Router> */}
+          <Route path="/AdminDashBoard/Update/:policyId" element ={<Update/>}></Route>
           </Routes>
       </BrowserRouter>
       

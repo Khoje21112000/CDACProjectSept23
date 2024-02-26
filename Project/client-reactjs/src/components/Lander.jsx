@@ -66,6 +66,7 @@ const Lander = () => {
 // Now you can use userId in your code as needed
     
      const handleBuyPolicy = (policy) => {
+        localStorage.setItem('selectedPolicy', JSON.stringify(policy));
         navigate(`/${selectedType}Policy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
         if (selectedType === 'Family') {
             navigate(`/FamilyPolicy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);

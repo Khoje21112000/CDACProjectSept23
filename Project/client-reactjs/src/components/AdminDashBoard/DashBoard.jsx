@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./DashBoard.css";
+import Sidebar from './SideBar';
 
 function Dashboard() {
     const [policyCount, setPolicyCount] = useState(0); // State to store the count of policies
@@ -19,6 +20,8 @@ function Dashboard() {
     }, []);
 
     return (
+        <>
+        <Sidebar></Sidebar>
         <div className='parent'>
             <ul className='box-info'>
                 <li>
@@ -37,6 +40,7 @@ function Dashboard() {
                 </li>
             </ul>
         </div>
+        </>
     );
 }
 

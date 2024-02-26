@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import './FamilyPolicy.css'
 import axios from 'axios';
 
 import { useNavigate } from 'react-router-dom';
 import NavbarHeader from './NavbarHeader';
 import Footer from './Footer';
+
+
 
 
 const AddFamilyMemberForm = ({ onSubmit }) => {
@@ -15,8 +17,18 @@ const AddFamilyMemberForm = ({ onSubmit }) => {
     const [gender, setGender] = useState('');
     const [occupation, setOccupation] = useState('');
     // const [redirectToViewMember, setRedirectToViewMember] = useState(false);
+    const [policyData, setPolicyData] = useState(null);
 
     const navigate = useNavigate(); 
+
+    // useEffect(() => {
+    //     const selectedPolicy = JSON.parse(localStorage.getItem('selectedPolicy'));
+    //     if (selectedPolicy) {
+    //         setPolicyData(selectedPolicy);
+    //     } else {
+    //         navigate('/');
+    //     }
+    // }, [navigate]);
 
     
     const handleButtonClick = () => {
@@ -30,7 +42,16 @@ const AddFamilyMemberForm = ({ onSubmit }) => {
             alert('Please fill out all required fields.');
             return;
         }
-
+        // const formData = {
+        //     fullName,
+        //     mobileNo,
+        //     relationship,
+        //     dateOfBirth,
+        //     gender,
+        //     occupation,
+          
+        //   };
+        // localStorage.setItem('familyFormData', JSON.stringify(formData));
         // Send POST request to create new family member
         try {
             const response = await axios.post('http://localhost:8080/family-members', {

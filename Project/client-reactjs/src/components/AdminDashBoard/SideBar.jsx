@@ -6,6 +6,7 @@ import "./SideBar.css"
 // import { logoutUser } from "../../Services/OrgService/LogoutSevice"
 // import { useSelector } from 'react-redux';
 import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 // import { Navigate } from 'react-router-dom';
 
 // import { useState, useEffect } from 'react';
@@ -62,8 +63,8 @@ function Sidebar() {
 	           
 				
         <box-icon name='arrow-back' ></box-icon>
-		<Button className="logout" onClick={null}>
-			   <span className="text">Logout</span>
+		<Button className="logout" >
+			<Link to="/Home" className="text">Logout</Link>
 			   </Button>			
 				
 			</li>

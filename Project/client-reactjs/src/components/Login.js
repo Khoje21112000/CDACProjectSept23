@@ -28,10 +28,10 @@ const Login = () => {
 
 
       // Store token in local storage
-      localStorage.setItem('token', token);
-      console.log(response.data);
-      console.log(token);
-      console.log(token.id);
+      // localStorage.setItem('token', token);
+      // console.log(response.data);
+      // console.log(token);
+      // console.log(token.id);
 
       
         // Assuming response.data contains UserType

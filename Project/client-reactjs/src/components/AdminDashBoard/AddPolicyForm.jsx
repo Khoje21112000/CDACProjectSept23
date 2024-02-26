@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AddPolicyForm.css';
+import Sidebar from './SideBar';
 
 const AddPolicyForm = () => {
   const [formData, setFormData] = useState({
@@ -58,6 +59,8 @@ const AddPolicyForm = () => {
 
 
   return (
+    <>
+    <Sidebar></Sidebar>
     <div className="form-container">
       <h2>Add New Policy</h2>
       <form onSubmit={handleSubmit}>
@@ -106,6 +109,7 @@ const AddPolicyForm = () => {
         <button type="submit" className="submit-button">Submit</button>
       </form>
     </div>
+    </>
   );
 };
 
