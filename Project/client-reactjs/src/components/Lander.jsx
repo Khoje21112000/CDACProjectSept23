@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./Lander.css";
 import { useNavigate } from 'react-router-dom';
-import NavbarHeader from './NavbarHeader';
+import Navbar2 from './Navbar2';
 import Footer from './Footer';
 
 const Lander = () => {
@@ -68,10 +68,10 @@ const Lander = () => {
      const handleBuyPolicy = (policy) => {
         localStorage.setItem('selectedPolicy', JSON.stringify(policy));
         navigate(`/${selectedType}Policy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
-        if (selectedType === 'Family') {
+        if (policy.coverageType.type === 'Family') {
             navigate(`/FamilyPolicy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
            
-        } else if (selectedType === 'Individual') {
+        } else if (policy.coverageType.type === 'Individual') {
             navigate(`/IndividualPolicy?policyNo=${policy.policyNo}&policyName=${policy.policyName}&sumInsured=${policy.sumInsured}&premium=${policy.premium}&policyPeriod=${policy.policyPeriod}&type=${policy.coverageType.type}`);
             
         }
@@ -84,9 +84,14 @@ const Lander = () => {
 
     return (
         <>
-        <NavbarHeader></NavbarHeader>
+        <Navbar2></Navbar2>
         <div className='policy-div'>
             <div className="lander-dropdowns-container">
+            <select className="lander-select" onChange={handleTypeChange} value={selectedType}>
+                    <option value="">Select Policy Type</option>
+                    <option value="Individual">Individual</option>
+                    <option value="Family">Family</option>
+                </select>
                 <select className="lander-select" onChange={handlePeriodChange} value={selectedPeriod}>
                     <option value="">Select Policy Period</option>
                     <option value="3 Years">3 Years</option>
@@ -101,11 +106,7 @@ const Lander = () => {
                     <option value="7 Lakh">7 Lakh</option>
                     <option value="12 Lakh">12 Lakh</option>
                 </select>
-                <select className="lander-select" onChange={handleTypeChange} value={selectedType}>
-                    <option value="">Select Policy Type</option>
-                    <option value="Individual">Individual</option>
-                    <option value="Family">Family</option>
-                </select>
+                
             </div>
             <div className="lander-card-container">
                 {policyData.map((curPost) => {

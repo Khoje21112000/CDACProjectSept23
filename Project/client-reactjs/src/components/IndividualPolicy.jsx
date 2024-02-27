@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './IndividualPolicy.css';
 import { useNavigate } from 'react-router-dom';
-import NavbarHeader from './NavbarHeader';
+import Navbar2 from './Navbar2';
 import Footer from './Footer';
 
 
@@ -16,6 +16,10 @@ const IndividualPolicy = () => {
    const [policyData, setPolicyData] = useState(null);
 
   const navigate = useNavigate(); 
+
+  const ViewLanderpage=()=>{
+    navigate('/Lander')
+  }
 
   useEffect(() => {
     const selectedPolicy = JSON.parse(localStorage.getItem('selectedPolicy'));
@@ -75,7 +79,7 @@ const IndividualPolicy = () => {
 
   return (
     <>
-    <NavbarHeader></NavbarHeader>
+    <Navbar2></Navbar2>
     <div className='container'>
     <div className='form-container'>
       <h2>Add Individual details</h2>
@@ -179,7 +183,7 @@ const IndividualPolicy = () => {
           </tbody>
         </table>
       </div>
-    
+      <button className="go-back" onClick={ViewLanderpage}>Go back</button>
     </div>
     <Footer></Footer>
     </>

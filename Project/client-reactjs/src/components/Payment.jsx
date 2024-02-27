@@ -1,8 +1,11 @@
 import React from 'react';
 import './Payment.css'; // Import CSS file for styling
 import Footer from './Footer';
-import NavbarHeader from './NavbarHeader';
+// import NavbarHeader from './NavbarHeader';
 import { useNavigate } from 'react-router-dom';
+import Navbar2 from './Navbar2';
+import ViewMemberPage from './ViewMemberPage';
+// import htmlDocx from 'html-docx-js'; // Import html-docx-js library
 
 const Payment = () => {
     // Extract individual details from the query parameters
@@ -32,20 +35,28 @@ const Payment = () => {
     // Calculate annual premium
     const annualPremium = premium * 12;
 
-    const handleLogout = () => {
-        // Clear localStorage
-        // localStorage.clear();
-        // Redirect to login page or perform any other logout actions
-        // For example:
-        // window.location.href = '/login'; // Redirect to login page
+    // Function to handle invoice generation and download
+    // const handleInvoiceDownload = () => {
+    //     const paymentPageContent = document.getElementById('payment-page').innerHTML;
+    //     const docBlob = htmlDocx.asBlob(paymentPageContent);
+    //     const docUrl = window.URL.createObjectURL(docBlob);
+    //     const a = document.createElement('a');
+    //     a.href = docUrl;
+    //     a.download = 'payment_invoice.doc';
+    //     document.body.appendChild(a);
+    //     a.click();
+    //     document.body.removeChild(a);
+    // };
 
-        navigation('/login');
+    const ViewMemberPage1=()=>{
+        navigation('/Lander')
+    }
 
-    };
+
 
     return (
         <>
-        <NavbarHeader></NavbarHeader>
+        <Navbar2></Navbar2>
         <div className="payment-container">
             <h2>Payment Details</h2>
             {/* Display individual details */}
@@ -114,13 +125,23 @@ const Payment = () => {
                     </tbody>
                 </table>
             </div>
-            {/* Additional payment form */}
-        </div>
-        <div className="buttons-container">
-            <button className="payment-button">Payment</button>
-            <button className="invoice-button">Invoice</button>
-            <button className="logout-button" onClick={handleLogout}>Logout</button>
-        </div>
+            {/* Payment options */}
+            <div className="payment-options">
+                    <h3>Payment Options:</h3>
+                    <div className="payment-logos">
+                        <img src="phonepe_logo.png" alt="PhonePe Logo" className="payment-logo" />
+                        <img src="googlepay_logo.png" alt="Google Pay Logo" className="payment-logo" />
+                        <img src="card_payment_logo.png" alt="Card Payment Logo" className="payment-logo" />
+                    </div>
+                </div>
+            </div>
+            <div className="buttons-container">
+                <button className="payment-button">Payment</button>
+                <button className="invoice-button" >Invoice</button>
+                <button className="logout-button" onClick={ViewMemberPage1}>View more policy</button>
+            </div>
+
+            
         <Footer></Footer>
         </>
     );

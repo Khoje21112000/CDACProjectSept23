@@ -14,6 +14,7 @@ const Login = () => {
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState('');
   const [pass, setPass] = useState('');
   const [error, setError] = useState('');
+  const [islogin,setisLogin] = useState(false);
   const navigation = useNavigate();
 
   const handleLogin = async () => {
@@ -24,8 +25,9 @@ const Login = () => {
       });
        var token  = response.data;
 
+       
        localStorage.setItem('token', JSON.stringify(token));
-
+       localStorage.setItem('islogin', true);
 
       // Store token in local storage
       // localStorage.setItem('token', token);
@@ -55,6 +57,7 @@ const Login = () => {
       console.error('Login failed:', error.message);
       // Handle error here, show an error message to the user
       setError('Login failed. Please try again later.');
+      localStorage.setItem('islogin', false);
     }
   };
 

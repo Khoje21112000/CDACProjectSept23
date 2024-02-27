@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navbar2 from './Navbar2';
 
 
 function ViewMemberPage() {
@@ -39,13 +40,15 @@ function ViewMemberPage() {
   };
 
   const handlePaymentButtonClick = () => {
-    const selectedMember = familyMembers.find(member => member.memberId === member);
-    localStorage.setItem('selectedMember', JSON.stringify(selectedMember));
+    // const selectedMember = familyMembers.find(member => member.memberId === member);
+    // localStorage.setItem('selectedMember', JSON.stringify(selectedMember));
     navigate('/Payment'); // Navigate to the payment page
   };
 
   return (
+    
     <div>
+    <Navbar2></Navbar2>
     <h2 style={{textAlign:'center'}}>Family Members</h2>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gridGap: '20px' }}>
       {familyMembers.map((member) => (

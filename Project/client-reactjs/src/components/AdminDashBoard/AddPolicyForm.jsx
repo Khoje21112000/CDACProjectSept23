@@ -5,7 +5,7 @@ import Sidebar from './SideBar';
 
 const AddPolicyForm = () => {
   const [formData, setFormData] = useState({
-    policyNo: '', // Use policyNo instead of policyNumber
+    policyNo: '',
     policyPeriod: '',
     policyName: '',
     sumInsured: '',
@@ -17,30 +17,17 @@ const AddPolicyForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Ensure policyNo is treated as an integer if needed
-    const newValue = name === 'policyNo' ? parseInt(value) : value;
-    console.log(value);
-    // If coverageType is selected, construct the coverage object
-    const finalValue = name === 'coverageType' ? { coverageId: parseInt(value) } : newValue;
-    // Update the formData state
     setFormData(prevState => ({
       ...prevState,
-      [name]: finalValue
+      [name]: value // Simply set the value without additional conditions
     }));
-
-    // Log the selected value in the console
-    console.log(finalValue);
   };
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Send form data to your backend
       const response = await axios.post('http://localhost:8080/add-policy-api', formData);
-      console.log(response.data); // Log the response from the server
-      
-      // Clear the form after successful submission
+      console.log(response.data);
       setFormData({
         policyNo: '',
         policyPeriod: '',
@@ -54,13 +41,11 @@ const AddPolicyForm = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
     }
-    
   };
-
 
   return (
     <>
-    <Sidebar></Sidebar>
+    <Sidebar />
     <div className="form-container">
       <h2>Add New Policy</h2>
       <form onSubmit={handleSubmit}>

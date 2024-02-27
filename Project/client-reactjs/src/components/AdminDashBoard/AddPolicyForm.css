@@ -1,14 +1,15 @@
 .form-container {
-  max-width: 500px; /* Reduced maximum width for better spacing */
-  margin: 20px auto; /* Center the form */
+  max-width: 700px;
+  margin: 20px auto;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: auto; /* Change height to auto to allow the container to grow as needed */
 }
 
 .form-group {
-  margin-bottom: 15px; /* Reduced margin for better compactness */
+  margin-bottom: 20px;
 }
 
 label {
@@ -18,15 +19,11 @@ label {
 input[type="text"],
 textarea,
 select {
-  width: 100%; /* Set width to 100% for responsiveness */
-  padding: 10px; /* Reduced padding for better compactness */
+  width: calc(100% - 30px);
+  padding: 10px 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 14px; /* Reduced font size for better fit */
-}
-
-textarea {
-  resize: vertical; /* Allow vertical resizing for textarea */
+  font-size: 16px;
 }
 
 .side-by-side {
@@ -35,7 +32,7 @@ textarea {
 }
 
 .side-by-side > div {
-  width: calc(50% - 5px); /* Adjusted width to create space */
+  width: 48%;
 }
 
 .submit-button {
@@ -51,4 +48,12 @@ textarea {
 
 .submit-button:hover {
   background-color: #0056b3;
+}
+
+.addpolicy-select {
+  width: calc(100% - 30px);
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }
