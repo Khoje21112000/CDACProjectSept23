@@ -1,0 +1,245 @@
+insert into coverage_type values(1,1,0,'Individual');
+insert into coverage_type values(2,2,0,'Family');
+insert into coverage_type values(3,2,1,'Family');
+insert into coverage_type values(4,2,2,'Family'); 
+{
+
+"description": "Comprehensive coverage for individuals seeking long-term security.",
+"keyFeatures": "1) Platinum_Care_System 2) Advanced medical facilities at KJ hospital network",
+"policyNo": 1005,
+"policyPeriod": "12 Years",
+"premium": 12000,
+"sumInsured": "20 Lakh",
+"coverageType": {"coverageId": 1},
+"policyName": "Ultimate Protection"
+},
+{
+  "description": "Enhanced coverage tailored to meet your evolving healthcare needs.",
+  "keyFeatures": "1) Gold_Care_System  2) Comprehensive medical facilities available at KJ hospital chain",
+  "policyNo": 1006,
+  "policyPeriod": "5 Years",
+  "premium": 5500,
+  "sumInsured": "10 Lakh",
+  "coverageType": {"coverageId": 2},
+  "policyName": "Gold Shield Standard"
+},
+{
+"description": "Comprehensive coverage for families, ensuring their well-being for years to come.",
+"keyFeatures": "1) Family_Care_System 2) Access to a wide range of medical services at KJ hospital network",
+"policyNo": 1007,
+"policyPeriod": "7 Years",
+"premium": 8000,
+"sumInsured": "20 Lakh",
+"coverageType": {"coverageId": 3},
+"policyName": "Family Wellness Plus"
+},
+{
+  "description": "Tailored for seniors, providing specialized care and support as they age gracefully.",
+  "keyFeatures": "1) Senior_Care_System  2) Geriatric care services available at KJ hospital network",
+  "policyNo": 1008,
+  "policyPeriod": "10 Years",
+  "premium": 7000,
+  "sumInsured": "15 Lakh",
+  "coverageType": {"coverageId": 4},
+  "policyName": "Senior Care Plus"
+},
+{
+"description": "Ideal for young professionals, offering flexibility and comprehensive coverage.",
+"keyFeatures": "1) Professional_Care_System 2) Access to specialized treatments at KJ hospital network",
+"policyNo": 1009,
+"policyPeriod": "3 Years",
+"premium": 3000,
+"sumInsured": "5 Lakh",
+coverageType": {"coverageId": 1},
+"policyName": "Career Starter"
+},
+{
+  "description": "Designed for adventurers and thrill-seekers, providing coverage for extreme sports injuries.",
+  "keyFeatures": "1) Adventure_Care_System  2) Emergency medical services for adventure-related incidents",
+  "policyNo": 1010,
+  "policyPeriod": "5 Years",
+  "premium": 6500,
+  "sumInsured": "15 Lakh",
+  "coverageType": {"coverageId": 2},
+  "policyName": "Extreme Sports Guard"
+},
+{
+"description": "Comprehensive coverage for individuals seeking long-term security.",
+"keyFeatures": "1) Platinum_Care_System 2) Advanced medical facilities at KJ hospital network",
+"policyNo": 1011,
+"policyPeriod": "12 Years",
+"premium": 12000,
+"sumInsured": "20 Lakh",
+"coverageType": {"coverageId": 1},
+"policyName": "Ultimate Protection"
+}
+,{
+  "description": "Enhanced coverage tailored to meet your evolving healthcare needs.",
+  "keyFeatures": "1) Gold_Care_System  2) Comprehensive medical facilities available at KJ hospital chain",
+  "policyNo": 1012,
+  "policyPeriod": "5 Years",
+  "premium": 5500,
+  "sumInsured": "10 Lakh",
+  "coverageType": {"coverageId": 2},
+  "policyName": "Gold Shield Standard"
+}
+,{
+"description": "Comprehensive coverage for families, ensuring their well-being for years to come.",
+"keyFeatures": "1) Family_Care_System 2) Access to a wide range of medical services at KJ hospital network",
+"policyNo": 1013,
+"policyPeriod": "7 Years",
+"premium": 8000,
+"sumInsured": "20 Lakh",
+"coverageType": {"coverageId": 3},
+"policyName": "Family Wellness Plus"
+},
+{
+  "description": "Tailored for seniors, providing specialized care and support as they age gracefully.",
+  "keyFeatures": "1) Senior_Care_System  2) Geriatric care services available at KJ hospital network",
+  "policyNo": 1014,
+  "policyPeriod": "10 Years",
+  "premium": 70000,
+  "sumInsured": "15 Lakh",
+  "coverageType": {"coverageId": 4},
+  "policyName": "Senior Care Plus"
+}
+,{
+"description": "Ideal for young professionals, offering flexibility and comprehensive coverage.",
+"keyFeatures": "1) Professional_Care_System 2) Access to specialized treatments at KJ hospital network",
+"policyNo": 1015,
+"policyPeriod": "3 Years",
+"premium": 30000,
+"sumInsured": "5 Lakh",
+"coverageType": {"coverageId": 1},
+"policyName": "Career Starter"
+},
+{
+  "description": "Designed for adventurers and thrill-seekers, providing coverage for extreme sports injuries.",
+  "keyFeatures": "1) Adventure_Care_System  2) Emergency medical services for adventure-related incidents",
+  "policyNo": 1016,
+  "policyPeriod": "5 Years",
+  "premium": 65000,
+  "sumInsured": "15 Lakh",
+  "coverageType": {"coverageId": 2},
+  "policyName": "Extreme Sports Guard"
+}
+,{
+"description": "Tailored for small business owners, providing coverage for employees and their families.",
+"keyFeatures": "1) Business_Care_System 2) Health insurance benefits for employees at KJ hospital network",
+"policyNo": 1017,
+"policyPeriod": "7 Years",
+"premium": 90000,
+"sumInsured": "25 Lakh",
+"coverageType": {"coverageId": 3},
+"policyName": "Corporate Healthcare"
+},
+{
+  "description": "Specially crafted for pet owners, ensuring their beloved companions receive the best care.",
+  "keyFeatures": "1) Pet_Care_System  2) Veterinary services and treatments covered at partner clinics",
+  "policyNo": 1018,
+  "policyPeriod": "3 Years",
+  "premium": 45000,
+  "sumInsured": "5 Lakh",
+  "coverageType": {"coverageId": 1},
+  "policyName": "Pet Care Deluxe"
+},
+{
+"description": "Tailored for new parents, providing coverage for maternity care and pediatric services.",
+"keyFeatures": "1) NewParent_Care_System 2) Maternity and pediatric care services at KJ hospital network",
+"policyNo": 1021,
+"policyPeriod": "5 Years",
+"premium": 65000,
+"sumInsured": "10 Lakh",
+"coverageType": {"coverageId": 3},
+"policyName": "Family Start"
+},
+{
+  "description": "Specially crafted for individuals with chronic illnesses, offering comprehensive disease management.",
+  "keyFeatures": "1) ChronicIllness_Care_System  2) Specialized treatments and ongoing support for chronic conditions",
+  "policyNo": 1022,
+  "policyPeriod": "7 Years",
+  "premium": 85000,
+  "sumInsured": "15 Lakh",
+  "coverageType": {"coverageId": 3},
+  "policyName": "Chronic Care Plus"
+},
+{
+"description": "Designed for fitness enthusiasts, providing coverage for sports injuries and wellness services.",
+"keyFeatures": "1) FitnessEnthusiast_Care_System 2) Rehabilitation and wellness programs tailored for athletes",
+"policyNo": 1023,
+"policyPeriod": "3 Years",
+"premium": 40000,
+"sumInsured": "5 Lakh",
+"coverageType": {"coverageId": 1},
+"policyName": "Athlete Guard"
+},
+{
+  "description": "Tailored for tech-savvy individuals, offering virtual healthcare consultations and digital health tools.",
+  "keyFeatures": "1) TechSavvy_Care_System  2) Access to telemedicine services and digital health monitoring tools",
+  "policyNo": 1024,
+  "policyPeriod": "5 Years",
+  "premium": 60000,
+  "sumInsured": "8 Lakh",
+  "coverageType": {"coverageId": 2},
+  "policyName": "Digital Wellness"
+},
+{
+"description": "Specially designed for retirees, providing comprehensive coverage during their golden years.",
+"keyFeatures": "1) Retiree_Care_System 2) Health and wellness benefits tailored for retirees",
+"policyNo": 1025,
+"policyPeriod": "10 Years",
+"premium": 100000,
+"sumInsured": "20 Lakh",
+"coverageType": {"coverageId": 3},
+"policyName": "Golden Years"
+},
+{
+  "description": "Tailored for individuals with a holistic approach to health, offering coverage for alternative therapies.",
+  "keyFeatures": "1) HolisticHealth_Care_System  2) Coverage for acupuncture, chiropractic care, and alternative medicine",
+  "policyNo": 1026,
+  "policyPeriod": "7 Years",
+  "premium": 75000,
+  "sumInsured": "12 Lakh",
+  "coverageType": {"coverageId": 2},
+  "policyName": "Holistic Wellness"
+},
+{
+"description": "Designed for art and culture enthusiasts, providing coverage for mental health services and creative therapies.",
+"keyFeatures": "1) ArtCulture_Care_System 2) Coverage for art therapy, counseling, and mental wellness programs",
+"policyNo": 1027,
+"policyPeriod": "5 Years",
+"premium": 55000,
+"sumInsured": "9 Lakh",
+"coverageType": {"coverageId": 2},
+"policyName": "Creative Care"
+}
+,{
+  "description": "Tailored for individuals with a focus on preventive care, offering coverage for health screenings and wellness exams.",
+  "keyFeatures": "1) PreventiveCare_Care_System  2) Comprehensive health screenings and preventive care services",
+  "policyNo": 1028,
+  "policyPeriod": "3 Years",
+  "premium": 35000,
+  "sumInsured": "6 Lakh",
+  "coverageType": {"coverageId": 1},
+  "policyName": "Preventive Health"
+},
+{
+"description": "Specially crafted for environmentalists, providing coverage for eco-friendly healthcare services and treatments.",
+"keyFeatures": "1) EcoFriendly_Care_System 2) Coverage for environmentally sustainable treatments and therapies",
+"policyNo": 1029,
+"policyPeriod": "5 Years",
+"premium": 60000,
+"sumInsured": "8 Lakh",
+"coverageType": {"coverageId": 2},
+"policyName": "Green Wellness"
+},
+{
+  "description": "Designed for individuals with a focus on mental wellness, providing coverage for counseling and therapy sessions.",
+  "keyFeatures": "1) MentalWellness_Care_System  2) Access to mental health professionals and counseling services",
+  "policyNo": 1030,
+  "policyPeriod": "7 Years",
+  "premium": 80000,
+  "sumInsured": "11 Lakh",
+  "coverageType": {"coverageId": 3},
+  "policyName": "Mindful Care"
+}
